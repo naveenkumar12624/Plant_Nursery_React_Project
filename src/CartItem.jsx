@@ -2,9 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
-import { toast } from 'react-toastify';
 
-const CartItem = ({ onContinueShopping }) => {
+const CartItem = () => {
   const cart = useSelector(state => state.cart.items);
   const totalQuantity = useSelector(state => state.cart.totalQuantity);
   const dispatch = useDispatch();
@@ -46,7 +45,6 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleRemove = (item) => {
-    toast.error(`${item.name} Removed From cart!`);
     dispatch(removeItem({ name: item.name }));
 
     setAddedToCart(prevState => {
@@ -96,3 +94,5 @@ const CartItem = ({ onContinueShopping }) => {
 };
 
 export default CartItem;
+
+
